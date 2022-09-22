@@ -1,8 +1,12 @@
 const { connection } = require('./connection');
 
-const create = async ({ id, name }) => {
+const get = async ({ }) => {
+
+};
+
+const create = async ({ name }) => {
   const query = 'INSERT INTO StoreManager.products (id, name) VALUES(?, ?, ?)';
-  const [result] = await connection.execute(query, [id, name]);
+  const [result] = await connection.execute(query, [name]);
   return result.insertId;
 };
 
