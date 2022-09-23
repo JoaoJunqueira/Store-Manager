@@ -23,18 +23,13 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/products/7",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-22T18:12:28.714Z",
-    "modified": "2022-09-22T18:40:45.789Z",
+    "modified": "2022-09-23T20:13:44.240Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
-      "form": []
-    },
     "tests": []
   }
 ]

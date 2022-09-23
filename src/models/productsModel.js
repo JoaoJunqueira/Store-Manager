@@ -1,7 +1,9 @@
 const { connection } = require('./connection');
 
-const get = async ({ }) => {
-
+const get = async () => {
+  const query = 'SELECT * FROM StoreManager.products';
+  const [result] = await connection.execute(query);
+  return result;
 };
 
 const create = async ({ name }) => {
@@ -11,5 +13,6 @@ const create = async ({ name }) => {
 };
 
 module.exports = {
+  get,
   create,
 };

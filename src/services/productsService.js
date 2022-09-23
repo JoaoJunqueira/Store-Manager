@@ -1,19 +1,15 @@
-const Joi = require('joi');
+// const Joi = require('joi');
 
-// const productsModel = require('../models/productsModel');
+const productsModel = require('../models/productsModel');
 
-const productsSchema = Joi.object({
-  id: Joi.number().required(),
-  name: Joi.string().required(),
-});
+// const productsSchema = Joi.object({
+//   id: Joi.number().required(),
+//   name: Joi.string().required(),
+// });
 
-const get = async ({ id, name }) => {
-  const { error } = productsSchema.validate({ id, name });
-  console.log(error);
-  if (error) {
-    throw new Error(error.message);
-  }
-  return null;
+const get = async () => {
+  const lista = await productsModel.get();
+  return lista;
 };
 
 // const create = async ({ name }) => {
