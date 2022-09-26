@@ -19,14 +19,19 @@ app.get('/products/:id', async (req, res) => {
   const { id } = req.params;
   const list = await productController.get();
   const selectedItem = list.filter((item) => item.id === Number(id));
-  if (selectedItem.length !== 0) res.status(200).json(selectedItem[0]);
+  if (selectedItem.length !== 0) return res.status(200).json(selectedItem[0]);
   if (selectedItem.length === 0) return res.status(404).json({ message: 'Product not found' });
 });
 
 app.post('/products', async (req, res) => {
   const { name } = req.body;
-  const newProduct = await productController.post(name);
-  res.status(201).json(newProduct);
+  const newProduct = await productController.post(res, name);
+  if (newProduct === 1) return res.status(400).json({ message: '"name" is required' });
+  if (newProduct === 2) {
+    return res.status(422)
+    .json({ message: '"name" length must be at least 5 characters long' });
+  }
+  return res.status(201).json(newProduct);
 });
 
 // não remova essa exportação, é para o avaliador funcionar
