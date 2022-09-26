@@ -3,12 +3,12 @@ const productController = require('./controllers/productsController');
 
 const app = express();
 
+app.use(express.json());
+
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
   response.send();
 });
-
-// app.get('/products', productController.get);
 
 app.get('/products', async (req, res) => {
   const list = await productController.get();
@@ -23,11 +23,11 @@ app.get('/products/:id', async (req, res) => {
   if (selectedItem.length === 0) return res.status(404).json({ message: 'Product not found' });
 });
 
-// app.use((err, req, res, _next) => {
-//   const { status, type, message } = err;
-//   if (status) res.status(status).json({ type, message });
-//   return res.status(404).json({ message: err.message });
-// });
+app.post('/products', async (req, res) => {
+  const { name } = req.body;
+  const newProduct = await productController.post(name);
+  res.status(201).json(newProduct);
+});
 
 // não remova essa exportação, é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima

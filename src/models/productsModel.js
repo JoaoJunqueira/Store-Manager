@@ -6,13 +6,14 @@ const get = async () => {
   return result;
 };
 
-const create = async ({ name }) => {
-  const query = 'INSERT INTO StoreManager.products (id, name) VALUES(?, ?, ?)';
+// Requisito 3
+const post = async (name) => {
+  const query = 'INSERT INTO StoreManager.products (name) VALUES (?)';
   const [result] = await connection.execute(query, [name]);
   return result.insertId;
 };
 
 module.exports = {
   get,
-  create,
+  post,
 };
