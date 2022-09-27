@@ -2,23 +2,32 @@ const productsService = require('../services/productsService');
 
 const get = async () => {
   const list = await productsService.get();
+  console.log(list);
   return list;
 };
 
 const post = async (res, name) => {
   const newProduct = await productsService.post(name);
   if (newProduct === 1) {
-    // return res.status(400).json({ message: '"name" is required' });
     return 1;
   }
   if (newProduct === 2) {
-    // return res.status(422).json({ message: '"name" length must be at least 5 characters long' });
     return 2;
   }
   return newProduct;
 };
 
+const put = async (name, id) => {
+  console.log(name);
+  const updatedProduct = await productsService.put(name, id);
+  if (updatedProduct === 1) {
+    return 1;
+  }
+  return updatedProduct;
+};
+
 module.exports = {
   get,
   post,
+  put,
 };

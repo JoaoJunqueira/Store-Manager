@@ -6,14 +6,22 @@ const get = async () => {
   return result;
 };
 
-// Requisito 3
 const post = async (name) => {
   const query = 'INSERT INTO StoreManager.products (name) VALUES (?)';
   const [result] = await connection.execute(query, [name]);
   return result.insertId;
 };
 
+const put = async (name, id) => {
+  const query = `UPDATE StoreManager.products SET name = '${name}' WHERE id = ${id}`;
+  await connection.execute(query);
+  const query2 = `SELECT * FROM StoreManager.products WHERE id = ${id}`;
+  const [result] = await connection.execute(query2, [name, id]);
+  return result;
+};
+
 module.exports = {
   get,
   post,
+  put,
 };
