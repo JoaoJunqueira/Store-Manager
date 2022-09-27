@@ -18,7 +18,6 @@ const post = async (res, name) => {
 };
 
 const put = async (name, id) => {
-  console.log(name);
   const updatedProduct = await productsService.put(name, id);
   if (updatedProduct === 1) {
     return 1;
@@ -26,8 +25,16 @@ const put = async (name, id) => {
   return updatedProduct;
 };
 
+const del = async (id) => {
+  const deletedProduct = await productsService.del(id);
+  return deletedProduct;
+  // if (deletedProduct === 1) return res.status(404).json({ message: 'Product not found' });
+  // return res.status(204);
+};
+
 module.exports = {
   get,
   post,
   put,
+  del,
 };

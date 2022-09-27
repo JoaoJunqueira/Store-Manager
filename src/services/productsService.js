@@ -31,8 +31,19 @@ const put = async (name, id) => {
   return updatedProduct;
 };
 
+const del = async (id) => {
+  const lista = await productsModel.get();
+  const thereIsAProduct = lista.find((produto) => produto.id === Number(id));
+  if (!thereIsAProduct) {
+    return null;
+  }
+  const updatedProduct = await productsModel.del(id);
+  return updatedProduct;
+};
+
 module.exports = {
   get,
   post,
   put,
+  del,
 };

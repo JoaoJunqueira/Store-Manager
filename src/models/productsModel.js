@@ -20,8 +20,14 @@ const put = async (name, id) => {
   return result;
 };
 
+const del = async (id) => {
+  const query = `DELETE FROM StoreManager.products WHERE id = ${id}`;
+  await connection.execute(query);
+};
+
 module.exports = {
   get,
   post,
   put,
+  del,
 };

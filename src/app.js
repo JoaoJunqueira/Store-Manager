@@ -1,5 +1,6 @@
 const express = require('express');
 const productController = require('./controllers/productsController');
+const salesController = require('./controllers/salesController');
 
 const app = express();
 
@@ -47,7 +48,17 @@ app.put('/products/:id', async (req, res) => {
   return res.status(200).json(updatedProduct[0]);
 });
 
-// app.delete();
+app.delete('/products/:id', async (req, res) => {
+  const { id } = req.params;
+  const deletedProduct = await productController.del(id);
+  if (deletedProduct === null) return res.status(404).json({ message: 'Product not found' });
+  return res.status(204).end();
+});
+
+app.delete('/sales/:id', async (req, res) => {
+  const { id } = req.params;
+  await salesController.del(res, id);
+});
 
 // não remova essa exportação, é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima
