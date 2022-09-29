@@ -28,8 +28,6 @@ const put = async (name, id) => {
 const del = async (id) => {
   const deletedProduct = await productsService.del(id);
   return deletedProduct;
-  // if (deletedProduct === 1) return res.status(404).json({ message: 'Product not found' });
-  // return res.status(204);
 };
 
 module.exports = {

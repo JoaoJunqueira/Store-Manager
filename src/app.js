@@ -57,7 +57,9 @@ app.delete('/products/:id', async (req, res) => {
 
 app.delete('/sales/:id', async (req, res) => {
   const { id } = req.params;
-  await salesController.del(res, id);
+  const deletedSales = await salesController.del(id);
+  if (deletedSales === null) return res.status(404).json({ message: 'Sale not found' });
+  return res.status(204).end();
 });
 
 // não remova essa exportação, é para o avaliador funcionar

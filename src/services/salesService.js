@@ -2,8 +2,9 @@ const salesModel = require('../models/salesModel');
 
 const del = async (id) => {
   const lista = await salesModel.get();
-  if (id > lista.length) {
-    return 1;
+  const thereIsAProduct = lista.find((produto) => produto.id === Number(id));
+    if (!thereIsAProduct) {
+    return null;
   }
   const updatedSale = await salesModel.del(id);
   return updatedSale;
