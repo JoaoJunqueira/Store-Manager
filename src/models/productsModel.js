@@ -3,12 +3,14 @@ const { connection } = require('./connection');
 const get = async () => {
   const query = 'SELECT * FROM StoreManager.products';
   const [result] = await connection.execute(query);
+  // console.log(JSON.parse(JSON.stringify(result)));
   return result;
 };
 
 const post = async (name) => {
   const query = 'INSERT INTO StoreManager.products (name) VALUES (?)';
   const [result] = await connection.execute(query, [name]);
+  console.log(result.insertId);
   return result.insertId;
 };
 
