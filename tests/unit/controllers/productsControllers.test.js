@@ -66,3 +66,17 @@ describe('Testa a camada de serviço referente a rota products', function () {
     expect(result).to.equal(1);
   });
 });
+describe('Testa a camada de serviço referente a rota products', function () {
+  before(async () => {
+    await sinon.stub(productsServices, 'del').resolves();
+    await sinon.stub(productsServices, 'get').resolves(controllerMock.products);
+  });
+  after(async () => {
+    await productsServices.get.restore();
+    await productsServices.del.restore();
+  });
+  it('Testa a função delete para a rota products, para "id" listado', async function () {
+    const result = await productsController.del(1);
+    expect(result).to.equal(undefined);
+  });
+});
