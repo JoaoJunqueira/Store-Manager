@@ -38,10 +38,25 @@ const updateProduct = [
   }
 ];
 
+const query = 'Martelo';
+
+const queryResponse = [
+  {
+    id: 1,
+    name: "Martelo de Thor"
+  }
+];
+
+const emptyQuery = '';
+
+
 module.exports = {
   products,
   produtoX,
   cadastroX,
   newName,
-  updateProduct
+  updateProduct,
+  query,
+  queryResponse,
+  emptyQuery,
 };

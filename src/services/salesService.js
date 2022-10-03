@@ -4,10 +4,10 @@ const del = async (id) => {
   const lista = await salesModel.get();
   const thereIsAProduct = lista.find((produto) => produto.id === Number(id));
     if (!thereIsAProduct) {
-    return null;
+    return 'Sale not found';
   }
-  const updatedSale = await salesModel.del(id);
-  return updatedSale;
+  await salesModel.del(id);
+  return 'Sale deleted';
 };
 
 module.exports = {

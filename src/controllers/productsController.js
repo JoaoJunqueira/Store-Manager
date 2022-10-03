@@ -2,11 +2,10 @@ const productsService = require('../services/productsService');
 
 const get = async () => {
   const list = await productsService.get();
-  console.log(list);
   return list;
 };
 
-const post = async (res, name) => {
+const post = async (name) => {
   const newProduct = await productsService.post(name);
   if (newProduct === 1) {
     return 1;

@@ -19,13 +19,13 @@ const put = async (name, id) => {
   await connection.execute(query);
   const query2 = `SELECT * FROM StoreManager.products WHERE id = ${id}`;
   const [result] = await connection.execute(query2, [name, id]);
-  // console.log(result);
   return result;
 };
 
 const del = async (id) => {
   const query = `DELETE FROM StoreManager.products WHERE id = ${id}`;
-  await connection.execute(query);
+  const [result] = await connection.execute(query);
+  return result;
 };
 
 const getQuery = async (q) => {
