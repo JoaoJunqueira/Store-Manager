@@ -30,3 +30,15 @@ describe('Testa a camada de controle referente a rota products', function () {
     expect(result).to.equal(controllerMock.produtoX);
   });
 });
+describe('Testa a camada de serviço referente a rota products', function () {
+  before(async () => {
+    await sinon.stub(productsServices, 'post').resolves(1);
+  });
+  after(async () => {
+    await productsServices.post.restore();
+  })
+  it('Testa a função post para a rota products, para "name" undefined', async function () {
+    const result = await productsController.post(undefined);
+    expect(result).to.equal(1);
+  });
+});

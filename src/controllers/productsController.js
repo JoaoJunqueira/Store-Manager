@@ -7,20 +7,11 @@ const get = async () => {
 
 const post = async (name) => {
   const newProduct = await productsService.post(name);
-  if (newProduct === 1) {
-    return 1;
-  }
-  if (newProduct === 2) {
-    return 2;
-  }
   return newProduct;
 };
 
 const put = async (name, id) => {
   const updatedProduct = await productsService.put(name, id);
-  if (updatedProduct === 1) {
-    return 1;
-  }
   return updatedProduct;
 };
 
