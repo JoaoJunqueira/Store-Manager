@@ -1,6 +1,6 @@
 const express = require('express');
 const productController = require('./controllers/productsController');
-const salesController = require('./controllers/salesController');
+// const salesController = require('./controllers/salesController');
 
 const app = express();
 
@@ -64,12 +64,12 @@ app.delete('/products/:id', async (req, res) => {
 
 //
 
-app.delete('/sales/:id', async (req, res) => {
-  const { id } = req.params;
-  const deletedSales = await salesController.del(id);
-  if (deletedSales === 'Sale deleted') return res.status(204).end();
-  if (deletedSales === 'Sale not found') return res.status(404).json({ message: deletedSales });
-});
+// app.delete('/sales/:id', async (req, res) => {
+//   const { id } = req.params;
+//   const deletedSales = await salesController.del(id);
+//   if (deletedSales === 'Sale deleted') return res.status(204).end();
+//   if (deletedSales === 'Sale not found') return res.status(404).json({ message: deletedSales });
+// });
 
 // app.put('/sales/:id', async (req, res) => {
 

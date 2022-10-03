@@ -1,5 +1,15 @@
 // const salesModel = require('../models/salesModel');
 
+// const saleValidation = async (products) => {
+//   const isProductThere = products.find((product) => product.productId === undefined);
+//   const isQuantityThere = products.find((product) => product.quantity === undefined);
+//   const isQuantityEnough = products.find((product) => product.quantity < 1);
+//   if (isProductThere !== undefined) return '"productId" is required';
+//   if (isQuantityThere !== undefined) return '"quantity" is required';
+//   if (isQuantityEnough !== undefined) return '"quantity" must be greater than or equal to 1';
+//   return 'Sale is valid';
+// };
+
 // const del = async (id) => {
 //   const lista = await salesModel.get();
 //   const thereIsAProduct = lista.find((produto) => produto.id === Number(id));

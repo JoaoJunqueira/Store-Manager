@@ -1,7 +1,13 @@
 // const { connection } = require('./connection');
 
-// const get = async () => {
+// const getSales = async () => {
 //   const query = 'SELECT * FROM StoreManager.sales';
+//   const [result] = await connection.execute(query);
+//   return result;
+// };
+
+// const getSalesProducts = async () => {
+//   const query = 'SELECT * FROM StoreManager.sales_products';
 //   const [result] = await connection.execute(query);
 //   return result;
 // };
@@ -12,6 +18,7 @@
 // };
 
 // module.exports = {
-//   get,
-//   del,
+  // getSales,
+  // getSalesProducts,
+  // del,
 // };
