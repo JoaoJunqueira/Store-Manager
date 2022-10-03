@@ -10,7 +10,7 @@ const get = async () => {
 const post = async (name) => {
   const query = 'INSERT INTO StoreManager.products (name) VALUES (?)';
   const [result] = await connection.execute(query, [name]);
-  console.log(result.insertId);
+  // console.log(result.insertId);
   return result.insertId;
 };
 
@@ -19,6 +19,7 @@ const put = async (name, id) => {
   await connection.execute(query);
   const query2 = `SELECT * FROM StoreManager.products WHERE id = ${id}`;
   const [result] = await connection.execute(query2, [name, id]);
+  // console.log(result);
   return result;
 };
 
@@ -27,9 +28,20 @@ const del = async (id) => {
   await connection.execute(query);
 };
 
+const getQuery = async (q) => {
+  if (q === '' || q === undefined) {
+    const list = await get();
+    return list;
+  }
+  const query = `SELECT * FROM StoreManager.products WHERE name LIKE '%${q}%'`;
+  const [result] = await connection.execute(query);
+  return result;
+};
+
 module.exports = {
   get,
   post,
   put,
   del,
+  getQuery,
 };

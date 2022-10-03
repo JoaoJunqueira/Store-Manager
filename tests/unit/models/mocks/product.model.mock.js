@@ -21,13 +21,27 @@ const produtoX = [
 
 const cadastroX = [
   {
-  "id": 4,
-  "name": "ProdutoX"
+    "id": 4,
+    "name": "ProdutoX"
   }
-]
+];
+
+const newName = [
+  {
+    "name": "Martelo do Batman"
+  }
+];
+
+const updateProduct = [
+  {
+    "name": "Martelo do Batman"
+  }
+];
 
 module.exports = {
   products,
   produtoX,
-  cadastroX
+  cadastroX,
+  newName,
+  updateProduct
 };

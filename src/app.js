@@ -16,6 +16,13 @@ app.get('/products', async (req, res) => {
   res.status(200).json(list);
 });
 
+app.get('/products/search', async (req, res) => {
+  const { q } = req.query;
+  console.log(q);
+  const list = await productController.getQuery(q);
+  return res.status(200).json(list);
+});
+
 app.get('/products/:id', async (req, res) => {
   const { id } = req.params;
   const list = await productController.get();

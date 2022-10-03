@@ -30,9 +30,15 @@ const del = async (id) => {
   return deletedProduct;
 };
 
+const getQuery = async (q) => {
+  const lista = await productsService.getQuery(q);
+  return lista;
+};
+
 module.exports = {
   get,
   post,
   put,
   del,
+  getQuery,
 };

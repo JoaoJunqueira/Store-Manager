@@ -41,9 +41,15 @@ const del = async (id) => {
   return updatedProduct;
 };
 
+const getQuery = async (q) => {
+  const list = await productsModel.getQuery(q);
+  return list;
+};
+
 module.exports = {
   get,
   post,
   put,
   del,
+  getQuery,
 };
