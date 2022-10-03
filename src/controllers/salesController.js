@@ -1,10 +1,10 @@
-const salesService = require('../services/salesService');
+// const salesService = require('../services/salesService');
 
-const del = async (id) => {
-  const deletedSales = await salesService.del(id);
-  return deletedSales;
-};
+// const del = async (id) => {
+//   const deletedSales = await salesService.del(id);
+//   return deletedSales;
+// };
 
-module.exports = {
-  del,
-};
+// module.exports = {
+//   del,
+// };

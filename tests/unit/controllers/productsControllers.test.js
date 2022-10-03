@@ -80,3 +80,15 @@ describe('Testa a camada de serviço referente a rota products', function () {
     expect(result).to.equal(undefined);
   });
 });
+describe('Testa a camada de serviço referente a rota products', function () {
+  before(async () => {
+    await sinon.stub(productsServices, 'getQuery').resolves(controllerMock.products[0]);
+  });
+  after(async () => {
+    await productsServices.getQuery.restore();
+  })
+  it('Testa a função get para a rota products/search', async function () {
+    const result = await productsController.getQuery('Martelo');
+    expect(result).to.equal(controllerMock.products[0]);
+  });
+});
