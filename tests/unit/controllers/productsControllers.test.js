@@ -42,3 +42,27 @@ describe('Testa a camada de serviço referente a rota products', function () {
     expect(result).to.equal(1);
   });
 });
+describe('Testa a camada de serviço referente a rota products', function () {
+  before(async () => {
+    await sinon.stub(productsServices, 'post').resolves(2);
+  });
+  after(async () => {
+    await productsServices.post.restore();
+  })
+  it('Testa a função post para a rota products, para "name" de tamanho menor que 5', async function () {
+    const result = await productsServices.post("Prod");
+    expect(result).to.equal(2);
+  });
+});
+describe('Testa a camada de serviço referente a rota products', function () {
+  before(async () => {
+    await sinon.stub(productsServices, 'put').resolves(1);
+  });
+  after(async () => {
+    await productsServices.put.restore();
+  })
+  it('Testa a função put para a rota products, para "name" undefined', async function () {
+    const result = await productsController.put(undefined, 3);
+    expect(result).to.equal(1);
+  });
+});

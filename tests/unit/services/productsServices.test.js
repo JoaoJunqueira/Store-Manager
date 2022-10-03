@@ -70,10 +70,10 @@ describe('Testa a camada de serviço referente a rota products', function () {
 });
 describe('Testa a camada de serviço referente a rota products', function () {
   before(async () => {
-    await sinon.stub(productsModel, 'post').resolves(4);
+    await sinon.stub(productsModel, 'put').resolves(4);
   });
   after(async () => {
-    await productsModel.post.restore();
+    await productsModel.put.restore();
   })
   it('Testa a função put para a rota products, para "name" undefined', async function () {
     const result = await productsServices.put(undefined, 3);
