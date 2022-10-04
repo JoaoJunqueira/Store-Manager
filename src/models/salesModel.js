@@ -27,8 +27,6 @@ const getId = async (id) => {
 const del = async (id) => {
   const query1 = `DELETE FROM StoreManager.sales WHERE id = ${id}`;
   await connection.execute(query1);
-  const query2 = `DELETE FROM StoreManager.sales WHERE sale_id = ${id}`;
-  await connection.execute(query2);
 };
 
 module.exports = {

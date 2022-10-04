@@ -74,14 +74,12 @@ app.get('/sales/:id', async (req, res) => {
   return res.status(200).json(product);
 });
 
-//
-
-// app.delete('/sales/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const deletedSales = await salesController.del(id);
-//   if (deletedSales === 'Sale deleted') return res.status(204).end();
-//   if (deletedSales === 'Sale not found') return res.status(404).json({ message: deletedSales });
-// });
+app.delete('/sales/:id', async (req, res) => {
+  const { id } = req.params;
+  const deletedSales = await salesController.del(id);
+  if (deletedSales === 'Sale not found') return res.status(404).json({ message: deletedSales });
+  if (deletedSales === 'Sale deleted') return res.status(204).end();
+});
 
 // app.put('/sales/:id', async (req, res) => {
 

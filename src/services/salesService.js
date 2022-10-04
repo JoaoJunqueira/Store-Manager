@@ -20,17 +20,18 @@ const getId = async (id) => {
 //   return 'Sale is valid';
 // };
 
-// const del = async (id) => {
-//   const lista = await salesModel.get();
-//   const thereIsAProduct = lista.find((produto) => produto.id === Number(id));
-//     if (!thereIsAProduct) {
-//     return 'Sale not found';
-//   }
-//   await salesModel.del(id);
-//   return 'Sale deleted';
-// };
+const del = async (id) => {
+  const lista = await salesModel.get();
+  const thereIsAProduct = lista.find((produto) => produto.saleId === Number(id));
+    if (!thereIsAProduct) {
+    return 'Sale not found';
+  }
+  await salesModel.del(id);
+  return 'Sale deleted';
+};
 
 module.exports = {
   get,
   getId,
+  del,
 };
