@@ -1,6 +1,6 @@
 const express = require('express');
 const productController = require('./controllers/productsController');
-// const salesController = require('./controllers/salesController');
+const salesController = require('./controllers/salesController');
 
 const app = express();
 
@@ -60,6 +60,18 @@ app.delete('/products/:id', async (req, res) => {
   const deletedProduct = await productController.del(id);
   if (deletedProduct === null) return res.status(404).json({ message: 'Product not found' });
   return res.status(204).end();
+});
+
+app.get('/sales', async (req, res) => {
+  const products = await salesController.get();
+  return res.status(200).json(products);
+});
+
+app.get('/sales/:id', async (req, res) => {
+  const { id } = req.params;
+  const product = await salesController.getId(id);
+  if (product.length === 0) return res.status(404).json({ message: 'Sale not found' });
+  return res.status(200).json(product);
 });
 
 //

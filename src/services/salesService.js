@@ -1,4 +1,14 @@
-// const salesModel = require('../models/salesModel');
+const salesModel = require('../models/salesModel');
+
+const get = async () => {
+  const getSales = await salesModel.get();
+  return getSales;
+};
+
+const getId = async (id) => {
+  const getSales = await salesModel.getId(id);
+  return getSales;
+};
 
 // const saleValidation = async (products) => {
 //   const isProductThere = products.find((product) => product.productId === undefined);
@@ -20,6 +30,7 @@
 //   return 'Sale deleted';
 // };
 
-// module.exports = {
-//   del,
-// };
+module.exports = {
+  get,
+  getId,
+};
