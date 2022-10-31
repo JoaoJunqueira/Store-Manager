@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "928fe105-f582-45d9-8937-9f8d506d9ab0",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost:3000/products",
+    "url": "https://localhost:3000/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-22T17:53:25.675Z",
+    "modified": "2022-09-22T18:11:14.770Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c73bc223-abcf-4630-9c20-5de40eb8859f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products",
+    "url": "http://localhost:3000/sales/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-22T18:12:28.714Z",
+    "modified": "2022-10-04T03:22:00.456Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
